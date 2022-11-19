@@ -1,0 +1,9 @@
+spring:
+  redis:
+    password: java123456
+    host: 1.117.169.244
+    port: 6379
+    database: 0
+    timeout: 10000
+server:
+  port: 9000

@@ -1,0 +1,11 @@
+spring:
+  redis:
+    database: 0
+    cluster:
+      nodes: 1.117.169.244:8001,1.117.169.244:8002,1.117.169.244:8003,1.117.169.244:8004,1.117.169.244:8005,1.117.169.244:8006
+    password: java123456
+    lettuce:
+      cluster:
+        refresh:
+          adaptive: true # 自适应刷新,lettuce默认没有刷新机制，哪怕主节点挂了，lettuce也不知道，需要自己刷新，这里设置为true，表示自动刷新。或者替换lettuce为Jedis
+          period: 30s # 刷新周期

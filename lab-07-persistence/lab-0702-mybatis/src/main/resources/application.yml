@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/springlab?useSSL=false
+    username: root
+    password: java1234
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.zach.mybatis.entity

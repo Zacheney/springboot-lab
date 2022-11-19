@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zach.springsecurity.mapper.MenuMapper">
+
+    <resultMap id="BaseResultMap" type="Menu">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="pattern" property="pattern" jdbcType="VARCHAR"/>
+        <collection property="roles" ofType="Role">
+            <id column="rid" property="id" jdbcType="INTEGER"/>
+            <result column="rname" property="name" jdbcType="VARCHAR"/>
+            <result column="rnameZh" property="nameZh" jdbcType="VARCHAR"/>
+        </collection>
+
+    </resultMap>
+
+    <select id="getAllMenus" resultMap="BaseResultMap">
+        select menu.*,
+               role.id  as rid,
+               role.name   as rname,
+               role.nameZh as rnameZh
+        from menu
+                 left join menu_role on menu.id = menu_role.mid
+                 left join role on menu_role.rid = role.id
+    </select>
+</mapper>

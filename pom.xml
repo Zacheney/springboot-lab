@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.zach.springboot.labs</groupId>
+    <artifactId>labs-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>SpringBoot-Labs</name>
+    <modules>
+        <module>lab-01-spring-test</module>
+        <module>lab-02-rabbitmq</module>
+        <module>lab-03-custome-starter</module>
+        <module>lab-04-applicationEvent</module>
+        <module>lab-05-transalation</module>
+        <module>lab-06-security</module>
+        <module>lab-07-persistence</module>
+        <module>lab-07-persistence/lab-0701-jdbctemplate</module>
+        <module>lab-07-persistence/lab-0702-mybatis</module>
+        <module>lab-07-persistence/lab-0703-jpa</module>
+        <module>lab-07-persistence/lab-0704-mutidatasource</module>
+        <module>lab-08-redis</module>
+        <module>lab-08-redis/lab-08-redis-sentinel</module>
+        <module>lab-08-redis/lab-08-redis-cluster</module>
+        <module>lab-09-session</module>
+        <module>lab-09-session/lab-09-01-sessionshare</module>
+        <module>lab-09-session/lab-09-02-sessionshare</module>
+        <module>lab-06-security/lab-06-01-springsecurity</module>
+        <module>lab-10-timetask</module>
+        <module>lab-10-timetask/lab-10-01-scheduled</module>
+        <module>lab-10-timetask/lab-10-02-quartz</module>
+        <module>lab-11-batchinsert</module>
+    </modules>
+
+    <properties>
+        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
+        <!--指定编码-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <!--引入Springboot的依赖管理-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--定义Java版本-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+            <!--打成可执行jar包-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.7.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
